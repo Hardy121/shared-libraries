@@ -29,7 +29,7 @@ pipeline {
         }
         stage("Push code on dockerhub"){
             steps{
-                echo "This is testing the code"
+                echo "This is pushing the code"
                 withCredentials([
                     usernamePassword(
                         credentialsId: "dockerHubCred",
@@ -47,7 +47,7 @@ pipeline {
         }
         stage("Deploy"){
             steps{
-                echo "This is deploying the code"
+                echo "This is docker compose up"
                 sh 'docker compose up -d'
             }
         }
